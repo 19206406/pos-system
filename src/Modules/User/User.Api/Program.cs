@@ -1,36 +1,50 @@
+using FastEndpoints;
+using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 using User.Api.Common.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// connection string 
+var connectionString = builder.Configuration.GetConnectionString("SchemaUserDb");
 
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
-
-// Configuration DbContext 
-
-var connectionString = builder.Configuration.GetConnectionString("SchemaUserDb"); 
-
-builder.Services.AddDbContext<UserDbContext>(options =>
+// IdentityDbContext 
+builder.Services.AddDbContext<IdentityDbContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString(connectionString!));
-}); 
+    options.UseNpgsql(connectionString);
+});
+
+// FastEndpoints 
+builder.Services
+    .AddFastEndpoints()
+    .SwaggerDocument(options =>
+    {
+        options.DocumentSettings = settings =>
+        {
+            settings.Title = "Users Api";
+            settings.Version = "v1";
+            settings.Description = "API for user, role and permission management";
+        }; 
+    });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// Database Migration 
+DatabaseMigrator.ApplyMigrations(connectionString!); 
+
+// FastEndpoints
+app.UseFastEndpoints();
+
+// scalar 
+app.UseSwaggerGen(options =>
 {
-    app.MapOpenApi();
-}
+    options.Path = "/openapi/{documentName}.json";
+});
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
+app.MapScalarApiReference(options =>
+{
+    options.WithTitle("Users API Documentation"); 
+});
 
 app.Run();

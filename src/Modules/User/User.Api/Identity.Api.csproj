@@ -11,14 +11,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Common\Database\Scripts\001_create_schema_users.sql" />
-    <Compile Include="Common\Database\Scripts\005_create_table_permissions.sql" />
-    <Compile Include="Common\Database\Scripts\003_create_table_sessions.sql" />
+    <None Remove="Common\Database\Scripts\004_create_table_roles.sql" />
+    <None Remove="Common\Database\Scripts\006_create_table_users_roles.sql" />
+    <None Remove="Common\Database\Scripts\007_create_table_roles_permissions.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Common\Database\Scripts\001_create_schema_users.sql" />
+    <EmbeddedResource Include="Common\Database\Scripts\002_create_table_users.sql" />
+    <EmbeddedResource Include="Common\Database\Scripts\005_create_table_permissions.sql" />
+    <EmbeddedResource Include="Common\Database\Scripts\003_create_table_sessions.sql" />
+    <EmbeddedResource Include="Common\Database\Scripts\004_create_table_roles.sql" />
+    <EmbeddedResource Include="Common\Database\Scripts\006_create_table_users_roles.sql" />
+    <EmbeddedResource Include="Common\Database\Scripts\007_create_table_roles_permissions.sql" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="dbup-postgresql" Version="7.0.1" />
     <PackageReference Include="FastEndpoints" Version="8.3.0" />
+    <PackageReference Include="FastEndpoints.Swagger" Version="8.3.0" />
     <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.11" />
@@ -28,11 +39,13 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.24.1-preview.1" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.17.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Permissions\" />
     <Folder Include="Roles\" />
+    <Folder Include="Users\LoginUser\" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@
   </Folder>
   <Folder Name="/src/Modules/" />
   <Folder Name="/src/Modules/User/">
-    <Project Path="src/Modules/User/User.Api/User.Api.csproj" />
+    <Project Path="src/Modules/User/User.Api/Identity.Api.csproj" />
   </Folder>
   <Project Path="docker-compose.dcproj">
     <Build />
