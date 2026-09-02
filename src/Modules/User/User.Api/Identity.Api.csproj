@@ -45,7 +45,6 @@
   <ItemGroup>
     <Folder Include="Permissions\" />
     <Folder Include="Roles\" />
-    <Folder Include="Users\LoginUser\" />
   </ItemGroup>
 
 </Project>

@@ -7,16 +7,21 @@ namespace User.Api.Users.RegisterUser
         public RegisterUserValidation()
         {
             RuleFor(x => x.FullName)
-                .NotEmpty().WithMessage("El nombre del nuevo usuario no puede ser vacío.");
+                .NotEmpty().WithMessage("The new user's name cannot be empty.")
+                .MaximumLength(100).WithMessage("The new user's name cannot exceed 100 characters."); 
 
             RuleFor(x => x.Email)
-                .NotEmpty().WithMessage("El email del nuevo usuario no puede ser vacío.");
+                .NotEmpty().WithMessage("The new user's email address cannot be empty.")
+                .EmailAddress().WithMessage("The value you entered is not a valid email address.")
+                .MaximumLength(150).WithMessage("The email cannot exceed 150 characters."); 
 
             RuleFor(x => x.PhoneNumber)
-                .NotEmpty().WithMessage("El telefono del usuario debe de contener un valor.");
+                .NotEmpty().WithMessage("The user's phone number must contain a value.")
+                .MaximumLength(20).WithMessage("The user's phone number cannot exceed 20 characters.");
 
             RuleFor(x => x.Position)
-                .NotEmpty().WithMessage("El usuario debe de contener un cargo dentro de la organización."); 
+                .NotEmpty().WithMessage("The user must hold a position within the organization.").
+                MaximumLength(100).WithMessage("A new user's username cannot exceed 100 characters."); 
         }
     }
 }
