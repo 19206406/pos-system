@@ -73,9 +73,10 @@ namespace BuildingBlocks.Exceptions
             "Unauthorized" => StatusCodes.Status401Unauthorized, 
             "Business" => StatusCodes.Status422UnprocessableEntity, 
             _ => StatusCodes.Status500InternalServerError
-        }; 
+        };
 
-        private static string GetTypeForStatusCode(int statusCode) => statusCode switch {
+        private static string GetTypeForStatusCode(int statusCode) => statusCode switch
+        {
             400 => "https://tools.ietf.org/html/rfc7231#section-6.5.1",
             401 => "https://tools.ietf.org/html/rfc7235#section-3.1",
             403 => "https://tools.ietf.org/html/rfc7231#section-6.5.3",
@@ -83,6 +84,6 @@ namespace BuildingBlocks.Exceptions
             409 => "https://tools.ietf.org/html/rfc7231#section-6.5.8",
             422 => "https://tools.ietf.org/html/rfc4918#section-11.2",
             _ => "https://tools.ietf.org/html/rfc7231#section-6.6.1"
-        }
+        }; 
     }
 }

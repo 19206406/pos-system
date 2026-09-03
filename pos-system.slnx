@@ -4,8 +4,8 @@
     <Project Path="src/BuildingBlocks/BuildingBlocks/BuildingBlocks.csproj" Id="32a01688-8d48-4475-95aa-42be5e7275c9" />
   </Folder>
   <Folder Name="/src/Modules/" />
-  <Folder Name="/src/Modules/User/">
-    <Project Path="src/Modules/User/User.Api/Identity.Api.csproj" />
+  <Folder Name="/src/Modules/Identity/">
+    <Project Path="src/Modules/Identity/Identity.Api/Identity.Api.csproj" />
   </Folder>
   <Project Path="docker-compose.dcproj">
     <Build />

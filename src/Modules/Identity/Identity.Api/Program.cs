@@ -1,3 +1,4 @@
+using BuildingBlocks.Exceptions;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Microsoft.EntityFrameworkCore;
@@ -28,13 +29,19 @@ builder.Services
         }; 
     });
 
+// Exceptions 
+builder.Services.AddSharedExceptionHandling(); 
+
 var app = builder.Build();
+
+// Exceptions
+app.UseExceptionHandler(); 
 
 // Database Migration 
 DatabaseMigrator.ApplyMigrations(connectionString!); 
 
 // FastEndpoints
-app.UseFastEndpoints();
+app.UseFastEndpoints(c => c.Errors.UseProblemDetails());
 
 // scalar 
 app.UseSwaggerGen(options =>
