@@ -1,6 +1,7 @@
 using BuildingBlocks.Exceptions;
 using FastEndpoints;
 using FastEndpoints.Swagger;
+using Identity.Api.Common.Security;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using User.Api.Common.Database;
@@ -30,7 +31,10 @@ builder.Services
     });
 
 // Exceptions 
-builder.Services.AddSharedExceptionHandling(); 
+builder.Services.AddSharedExceptionHandling();
+
+// Services 
+builder.Services.AddScoped<IPasswordHasher, Argon2PasswordHasher>(); 
 
 var app = builder.Build();
 

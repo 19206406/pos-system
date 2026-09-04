@@ -18,8 +18,6 @@ namespace User.Api.Users.RegisterUser
 
         public async Task<RegisterUserResponse> ExecuteAsync(RegisterUserCommand command, CancellationToken ct)
         {
-            // TODO: Implement the validation pipeline using FluentValidation
-
             var newUser = new Common.Database.Entities.User
             {
                 FullName = command.FullName,

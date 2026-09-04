@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS identity.users (
     phone_number    VARCHAR(20) NULL,
     job_title       VARCHAR(100) NOT NULL,
     email           VARCHAR(150) NOT NULL,
+    is_active       BOOLEAN DEFAULT true, 
     hash_password   TEXT NULL, 
     created_at      TIMESTAMPTZ NOT NULL,
     updated_at      TIMESTAMPTZ NOT NULL,

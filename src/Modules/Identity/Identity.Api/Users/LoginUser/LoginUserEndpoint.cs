@@ -10,15 +10,15 @@ namespace Identity.Api.Users.LoginUser
     {
         public override void Configure()
         {
-            Post("/api/login"); 
+            Post("/api/login");
+            AllowAnonymous(); 
         }
 
         public override async Task HandleAsync(LoginUserRequest req, CancellationToken ct)
         {
+            var command = await new LoginUserCommand(req.Email, req.Password).ExecuteAsync(); 
 
-            var command = await new LoginUserCommand(req.Email, req.Password); 
-
-            return Send.OkAsync(); 
+            await Send.OkAsync(); 
         }
     }
 }
