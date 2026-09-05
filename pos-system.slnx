@@ -1,11 +1,11 @@
 <Solution>
   <Folder Name="/src/" />
-  <Folder Name="/src/BuildingBlocks/">
-    <Project Path="src/BuildingBlocks/BuildingBlocks/BuildingBlocks.csproj" Id="32a01688-8d48-4475-95aa-42be5e7275c9" />
-  </Folder>
   <Folder Name="/src/Modules/" />
   <Folder Name="/src/Modules/Identity/">
     <Project Path="src/Modules/Identity/Identity.Api/Identity.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/">
+    <Project Path="src/Shared/Shared/Shared.csproj" />
   </Folder>
   <Project Path="docker-compose.dcproj">
     <Build />
