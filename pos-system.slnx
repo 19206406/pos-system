@@ -1,8 +1,11 @@
 <Solution>
   <Folder Name="/src/" />
   <Folder Name="/src/Modules/" />
-  <Folder Name="/src/Modules/Identity/">
-    <Project Path="src/Modules/Identity/Identity.Api/Identity.Api.csproj" />
+  <Folder Name="/src/Modules/PosSystem/">
+    <Project Path="src/Modules/Identity/Identity.Api/PosSystem.Api.csproj" />
+    <Project Path="src/Modules/Identity/PosSystem.Data/PosSystem.Data.csproj" Id="d07ee985-224c-4d1e-a494-6095308716ad" />
+    <Project Path="src/Modules/Identity/PosSystem.Models/PosSystem.Models.csproj" Id="915d864a-e019-4828-ac59-324f16df5f0b" />
+    <Project Path="src/Modules/Identity/PosSystem.Notificator/PosSystem.Events.csproj" Id="86754d3c-f9a8-48ef-9605-eacb636484dd" />
   </Folder>
   <Folder Name="/src/Shared/">
     <Project Path="src/Shared/Shared/Shared.csproj" />
