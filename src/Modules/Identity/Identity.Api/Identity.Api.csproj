@@ -11,6 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Permissions\**" />
+    <Content Remove="Permissions\**" />
+    <EmbeddedResource Remove="Permissions\**" />
+    <None Remove="Permissions\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Common\Database\Scripts\004_create_table_roles.sql" />
     <None Remove="Common\Database\Scripts\006_create_table_users_roles.sql" />
     <None Remove="Common\Database\Scripts\007_create_table_roles_permissions.sql" />
@@ -41,10 +48,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.24.1-preview.1" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
     <PackageReference Include="Scalar.AspNetCore" Version="2.17.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Permissions\" />
   </ItemGroup>
 
   <ItemGroup>

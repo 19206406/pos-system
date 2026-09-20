@@ -1,8 +1,11 @@
 <Solution>
-  <Folder Name="/src/" />
+  <Folder Name="/src/">
+    <Project Path="src/PosSystem/PosSystem.csproj" Id="fb390204-3c01-4f5f-ab90-190a13182ae3" />
+  </Folder>
   <Folder Name="/src/Modules/" />
   <Folder Name="/src/Modules/Identity/">
     <Project Path="src/Modules/Identity/Identity.Api/Identity.Api.csproj" />
+    <Project Path="src/Modules/Identity/Identity/Identity.csproj" />
   </Folder>
   <Folder Name="/src/Shared/">
     <Project Path="src/Shared/Shared/Shared.csproj" />

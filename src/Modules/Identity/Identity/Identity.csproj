@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Scripts\001_create_schema_users.sql" />
+    <EmbeddedResource Include="Data\Scripts\002_create_table_users.sql" />
+    <EmbeddedResource Include="Data\Scripts\003_create_table_sessions.sql" />
+    <EmbeddedResource Include="Data\Scripts\004_create_table_roles.sql" />
+    <EmbeddedResource Include="Data\Scripts\005_create_table_permissions.sql" />
+    <EmbeddedResource Include="Data\Scripts\006_create_table_users_roles.sql" />
+    <EmbeddedResource Include="Data\Scripts\007_create_table_roles_permissions.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FastEndpoints" Version="8.3.0" />
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Shared\Shared.csproj" />
+  </ItemGroup>
+
+</Project>
